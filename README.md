@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/seedance-prompt-forge.svg)](https://www.npmjs.com/package/seedance-prompt-forge)
 [![npm downloads](https://img.shields.io/npm/dm/seedance-prompt-forge.svg)](https://www.npmjs.com/package/seedance-prompt-forge)
+[![CI](https://github.com/thoxakihiko/seedance-prompt-forge/actions/workflows/ci.yml/badge.svg)](https://github.com/thoxakihiko/seedance-prompt-forge/actions/workflows/ci.yml)
 [![license](https://img.shields.io/npm/l/seedance-prompt-forge.svg)](LICENSE)
 [![node](https://img.shields.io/node/v/seedance-prompt-forge.svg)](https://nodejs.org)
 
