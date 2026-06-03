@@ -1,5 +1,10 @@
 # seedance-prompt-forge
 
+[![npm version](https://img.shields.io/npm/v/seedance-prompt-forge.svg)](https://www.npmjs.com/package/seedance-prompt-forge)
+[![npm downloads](https://img.shields.io/npm/dm/seedance-prompt-forge.svg)](https://www.npmjs.com/package/seedance-prompt-forge)
+[![license](https://img.shields.io/npm/l/seedance-prompt-forge.svg)](LICENSE)
+[![node](https://img.shields.io/node/v/seedance-prompt-forge.svg)](https://nodejs.org)
+
 > Build clean, structured, consistent video prompts for **Seedance** and other text-to-video models (Kling, Runway, Veo) from simple inputs — instead of hand-formatting every prompt by hand.
 
 `forge` turns a few simple flags into a properly ordered, model-friendly prompt. You stop re-typing the same phrasing, stop forgetting the camera/lighting/style structure, and stop getting inconsistent results because every prompt was written slightly differently.

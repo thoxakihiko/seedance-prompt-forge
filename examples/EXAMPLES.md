@@ -44,7 +44,7 @@ forge --subject "a luxury wristwatch" \
 ```
 
 **Output:**
-> A luxury wristwatch, the subject remains still, only subtle ambient motion. Photorealistic, ultra-detailed, lifelike textures. Extreme close-up, intense detail on eyes and expression. Macro lens, shallow depth of field, fine detail. Controlled three-point studio lighting. 1:1 square aspect ratio.
+> A luxury wristwatch, remaining still, only subtle ambient motion. Photorealistic, ultra-detailed, lifelike textures. Extreme close-up, intense detail on eyes and expression. Macro lens, shallow depth of field, fine detail. Controlled three-point studio lighting. 1:1 square aspect ratio.
 
 ---
 
