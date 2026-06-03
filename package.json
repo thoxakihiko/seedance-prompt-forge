@@ -1,0 +1,36 @@
+{
+  "name": "seedance-prompt-forge",
+  "version": "0.1.0",
+  "description": "Build clean, structured, consistent video prompts for Seedance (and similar text-to-video models) from simple inputs. Stop hand-formatting prompts.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "forge": "src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "node test/smoke.test.js"
+  },
+  "keywords": [
+    "seedance",
+    "text-to-video",
+    "ai-video",
+    "prompt-engineering",
+    "prompt-generator",
+    "video-generation",
+    "cli",
+    "kling",
+    "runway"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ]
+}
