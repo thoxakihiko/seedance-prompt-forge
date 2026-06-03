@@ -18,6 +18,10 @@ forge --subject "lone samurai" --setting "rain-soaked neon alley" \
 →
 > Lone samurai, in rain-soaked neon alley. Dark moody anime aesthetic, muted palette, dramatic shadows. Low angle shot looking up at the subject, heroic and imposing. Slow dolly push-in toward the subject. Saturated neon lighting, magenta and cyan glow. Tense, suspenseful atmosphere. Dramatic slow motion. 21:9 ultra-wide cinematic aspect ratio.
 
+<p align="center">
+  <img src=".github/before-after.png" alt="By hand vs forge — same idea, structured and consistent every time" width="100%">
+</p>
+
 ---
 
 ## ✨ Features
