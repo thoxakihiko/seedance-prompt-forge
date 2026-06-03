@@ -126,6 +126,11 @@ The vocabulary lives in small, readable modules under [`src/modules/`](src/modul
 
 See [`examples/EXAMPLES.md`](examples/EXAMPLES.md).
 
+## Related
+
+- [`shotlist-forge`](https://github.com/thoxakihiko/shotlist-forge) — expands one concept into a full, shot-by-shot prompt *sequence*, built on top of this tool.
+- [`awesome-ai-video`](https://github.com/thoxakihiko/awesome-ai-video) — a curated list of AI text-to-video models, tools, and resources.
+
 ## Contributing
 
 The preset vocabularies are intentionally simple to extend. Open a PR to add shot types, lighting setups, styles, or motion presets — each lives in its own module file. Issues and suggestions welcome.
