@@ -1,6 +1,6 @@
 {
   "name": "seedance-prompt-forge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build clean, structured, consistent video prompts for Seedance (and similar text-to-video models) from simple inputs. Stop hand-formatting prompts.",
   "type": "module",
   "main": "src/index.js",
@@ -20,10 +20,20 @@
     "video-generation",
     "cli",
     "kling",
-    "runway"
+    "runway",
+    "veo",
+    "sora"
   ],
-  "author": "",
+  "author": "Thox (https://github.com/thoxakihiko)",
   "license": "MIT",
+  "homepage": "https://github.com/thoxakihiko/seedance-prompt-forge#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thoxakihiko/seedance-prompt-forge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thoxakihiko/seedance-prompt-forge/issues"
+  },
   "engines": {
     "node": ">=18"
   },
@@ -31,6 +41,7 @@
     "src",
     "examples",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ]
 }
