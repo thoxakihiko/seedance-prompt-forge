@@ -20,6 +20,15 @@ forge --subject "lone samurai" --setting "rain-soaked neon alley" \
 
 ---
 
+## ✨ Features
+
+- 🎬 **Structured output** — assembles prompts in the order text-to-video models weight most: subject → style → camera → lighting → mood → pacing → aspect ratio.
+- 🎛️ **100+ curated presets** across shots, camera moves, lenses, lighting, mood, style, subject motion, pacing, and aspect ratios.
+- ✍️ **Preset key _or_ free text** — every flag accepts a shorthand key *or* your own words. You're never boxed in.
+- 🔁 **Consistent by default** — the same inputs always produce the same clean prompt, so a 30-shot project actually feels like one project.
+- 📦 **CLI _and_ library** — run `forge` in the terminal or call `buildPrompt()` in code.
+- 🪶 **Zero dependencies, 100% local & free** — no API key, no account, nothing phones home.
+
 ## Why this exists
 
 Text-to-video models reward prompts that are **structured and ordered** — subject first, then style, camera, lighting, mood, pacing, technical specs. Writing that by hand every time is tedious and error-prone, and small wording differences produce inconsistent results across a project.
