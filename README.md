@@ -42,7 +42,7 @@ forge --subject "lone samurai" --setting "rain-soaked neon alley" \
 - New library helpers: `getModel`, `validateDuration`, `validateReferences`, `listModels`.
 - Prompts built without `--duration` are byte-for-byte identical to v0.1.x.
 
-> **Not yet supported:** the Seedance 2.5 public API isn't released (coming soon via BytePlus ModelArk), and new output resolutions aren't officially confirmed — so `forge` doesn't emit API parameters or resolution presets for 2.5 yet. Source: [ByteDance Seed blog](https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5).
+> **Not yet supported:** `forge` builds prompt text only — it doesn't emit API parameters (the Seedance 2.5 API is available on [BytePlus ModelArk](https://www.byteplus.com/en/product/seedance); take model IDs and parameters from its docs) or resolution presets (output resolutions differ across official surfaces). Source: [ByteDance Seed blog](https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5).
 
 ## ✨ Features
 
