@@ -1,0 +1,27 @@
+name: Publish to npm
+
+# Manual only: Actions tab → "Publish to npm" → Run workflow.
+# Uses npm Trusted Publishing (OIDC) — no NPM_TOKEN secret needed. Requires this
+# repo + workflow file to be registered as a Trusted Publisher on npmjs.com
+# (package → Settings → Trusted Publisher → GitHub Actions, workflow: publish.yml).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          registry-url: https://registry.npmjs.org
+      # Trusted Publishing needs npm >= 11.5.1.
+      - run: npm install -g npm@latest
+      - run: npm install
+      - run: npm test
+      - run: npm publish
