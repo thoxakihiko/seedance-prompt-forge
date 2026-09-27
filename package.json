@@ -1,6 +1,6 @@
 {
   "name": "seedance-prompt-forge",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Build clean, structured, consistent video prompts for Seedance (and similar text-to-video models) from simple inputs. Stop hand-formatting prompts.",
   "type": "module",
   "main": "src/index.js",

@@ -5,6 +5,7 @@ import { shots, movements, lenses } from "./modules/camera.js";
 import { lighting, moods } from "./modules/lighting.js";
 import { styles, aspectRatios } from "./modules/style.js";
 import { motions, pacing } from "./modules/motion.js";
+import { defaultModel, getModel, validateDuration } from "./models.js";
 
 const REGISTRY = {
   shot: shots,
@@ -42,12 +43,20 @@ function resolve(category, value) {
  * @param {string} [input.pacing]  - pacing key or free text
  * @param {string} [input.aspect]  - aspect ratio key
  * @param {string} [input.extra]   - any extra free-text detail appended at the end
+ * @param {string} [input.model]   - target model: seedance-2.5 (default) or seedance-2.0
+ * @param {number} [input.duration]- clip length in seconds, checked against the model's single-pass limit
  * @returns {string} assembled prompt
  */
 export function buildPrompt(input = {}) {
   if (!input.subject || !String(input.subject).trim()) {
     throw new Error("`subject` is required. What is in the shot?");
   }
+
+  // Validates the model id even when no duration is given, so typos surface early.
+  const model = getModel(input.model || defaultModel);
+  const duration = input.duration != null && input.duration !== true
+    ? validateDuration(input.duration, model.id)
+    : null;
 
   // Ordered so the most important info leads — models weight early tokens more.
   const segments = [];
@@ -77,7 +86,8 @@ export function buildPrompt(input = {}) {
   // 6. Extra free text
   if (input.extra) push(segments, String(input.extra).trim());
 
-  // 7. Aspect ratio (technical, goes last)
+  // 7. Technical: duration, then aspect ratio (goes last)
+  if (duration) push(segments, `${duration}-second duration`);
   push(segments, resolve("aspect", input.aspect));
 
   return segments.join(". ").replace(/\.\.+/g, ".") + ".";

@@ -3,6 +3,25 @@
 All notable changes to this project are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## [0.2.0] - 2026-09-27
+
+### Added
+- Seedance 2.5 support, now the default model. Seedance 2.0 remains available
+  via `--model seedance-2.0` (aliases: `2.0`, `2.5`).
+- `--duration` flag / `duration` option, validated against the model's
+  single-pass limit (30s on 2.5, 15s on 2.0) and appended to the technical tail
+  of the prompt.
+- `forge models` command.
+- `src/models.js` with `getModel`, `validateDuration`, `validateReferences`
+  (2.5: max 30 images, 10 videos, 10 audio per prompt) and `listModels`.
+- Tests for the new limits.
+
+### Notes
+- Prompts built without `duration` are unchanged from 0.1.x.
+- Seedance 2.5 API parameters and resolutions are intentionally not encoded
+  (API not public yet; resolutions not officially confirmed) — see TODOs in
+  `src/models.js`.
+
 ## [0.1.1] - 2026-06-03
 
 ### Added
