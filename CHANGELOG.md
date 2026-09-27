@@ -19,8 +19,8 @@ This project follows [Semantic Versioning](https://semver.org/).
 ### Notes
 - Prompts built without `duration` are unchanged from 0.1.x.
 - Seedance 2.5 API parameters and resolutions are intentionally not encoded
-  (API not public yet; resolutions not officially confirmed) — see TODOs in
-  `src/models.js`.
+  (take model IDs/parameters from the BytePlus ModelArk docs; resolutions
+  differ across official surfaces) — see TODOs in `src/models.js`.
 
 ## [0.1.1] - 2026-06-03
 

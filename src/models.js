@@ -25,11 +25,13 @@ export const models = {
     multiRoundExtension: true,
     // New reference types: clay render (pose, motion path, camera angle), motion, creative.
     referenceTypes: ["clay-render", "motion", "creative"],
-    // TODO: new resolutions are not officially confirmed yet — do not add numbers.
+    // TODO: resolutions differ across official surfaces (Dreamina vs ModelArk
+    // API) — do not add numbers until one spec is settled.
     resolutions: null,
-    // TODO: public API not released yet (coming soon via BytePlus ModelArk).
-    // Do not add API parameter names until the API docs are published.
-    apiAvailable: false
+    // API is live on BytePlus ModelArk (https://www.byteplus.com/en/product/seedance).
+    // TODO: model ID and request parameters not encoded — take them from the
+    // ModelArk docs when wiring an API client; don't hardcode guesses here.
+    apiAvailable: true
   }
 };
 
