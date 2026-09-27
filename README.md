@@ -25,6 +25,25 @@ forge --subject "lone samurai" --setting "rain-soaked neon alley" \
 
 ---
 
+## 🆕 What's new — Seedance 2.5 (v0.2.0)
+
+`forge` now targets **Seedance 2.5 by default**. Seedance 2.0 is still fully supported with `--model seedance-2.0`.
+
+| | Seedance 2.0 | **Seedance 2.5** |
+|---|---|---|
+| Max single-pass duration | 15s | **30s** |
+| References per prompt | not validated by `forge` | **30 images · 10 videos · 10 audio** |
+| Multi-round extension (characters/environment stay consistent) | | ✅ new |
+| New reference types | | clay render (pose, motion path, camera angle), motion, creative |
+| Editing | | timestamp-level, green screen / background replacement, camera perspective, reference-based |
+
+- New `--model` and `--duration` flags. `--duration` is checked against the model's single-pass limit (30s on 2.5, 15s on 2.0) and added to the prompt's technical tail.
+- New `forge models` command lists supported models and their limits.
+- New library helpers: `getModel`, `validateDuration`, `validateReferences`, `listModels`.
+- Prompts built without `--duration` are byte-for-byte identical to v0.1.x.
+
+> **Not yet supported:** the Seedance 2.5 public API isn't released (coming soon via BytePlus ModelArk), and new output resolutions aren't officially confirmed — so `forge` doesn't emit API parameters or resolution presets for 2.5 yet. Source: [ByteDance Seed blog](https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5).
+
 ## ✨ Features
 
 - 🎬 **Structured output** — assembles prompts in the order text-to-video models weight most: subject → style → camera → lighting → mood → pacing → aspect ratio.
@@ -70,6 +89,14 @@ See every available preset key:
 forge options
 ```
 
+Target a model and clip length (Seedance 2.5 is the default, up to 30s per pass):
+
+```bash
+forge --subject "a skateboarder" --setting "empty concrete skatepark" --duration 25
+forge --subject "a skateboarder" --duration 12 --model seedance-2.0   # 2.0: max 15s
+forge models                                                          # list models + limits
+```
+
 Full help:
 
 ```bash
@@ -90,6 +117,16 @@ const prompt = buildPrompt({
 });
 ```
 
+Check limits before you generate:
+
+```js
+import { validateDuration, validateReferences } from "seedance-prompt-forge";
+
+validateDuration(28);                          // ok on Seedance 2.5 (max 30s)
+validateDuration(28, "seedance-2.0");          // throws — 2.0 max is 15s
+validateReferences({ images: 12, videos: 3 }); // ok on 2.5 (≤30 / ≤10 / ≤10)
+```
+
 ## Flags
 
 | Flag | What it controls | Example values |
@@ -106,6 +143,8 @@ const prompt = buildPrompt({
 | `--pacing` | Shot pacing | `slow`, `fast`, `slow-motion` |
 | `--aspect` | Aspect ratio | `16:9`, `9:16`, `21:9` |
 | `--extra` | Any extra free-text detail | `"volumetric fog"` |
+| `--model` | Target model (default `seedance-2.5`) | `seedance-2.5`, `seedance-2.0`, `2.0` |
+| `--duration` | Clip length in seconds (≤30 on 2.5, ≤15 on 2.0) | `25` |
 
 **Every flag accepts a preset key OR free text.** Unknown values pass straight through, so you are never boxed in by the presets.
 
@@ -119,7 +158,7 @@ The prompt is assembled in the order text-to-video models weight most heavily:
 4. **Lighting + mood**
 5. **Pacing**
 6. **Extra detail**
-7. **Aspect ratio** (technical, goes last)
+7. **Duration + aspect ratio** (technical, goes last)
 
 The vocabulary lives in small, readable modules under [`src/modules/`](src/modules/) — camera, lighting, style, motion. Editing or extending the presets is just editing a plain object.
 
